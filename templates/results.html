@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPX File Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-section insights">
+            <h1>GPX File Analysis Results</h1>
+            <p>Total Distance: <strong>{{ total_distance }} km</strong></p>
+            <p>Average Speed: <strong>{{ average_speed }} km/h</strong></p>
+            <p>Total Elevation Gain: <strong>{{ total_elevation_gain }} meters</strong></p>
+            <a href="{{ url_for('index') }}" class="back-button">Upload another file</a>
+        </div>
+        <div class="dashboard-section elevation-plot">
+            <h2>Elevation Profile</h2>
+            <img src="{{ url_for('static', filename='images/elevation_plot.png') }}" alt="Elevation Profile" class="plot-frame">
+        </div>
+        <div class="dashboard-section map">
+            <iframe src="{{ url_for('static', filename='maps/map.html') }}" class="map-frame"></iframe>
+        </div>
+        <div class="dashboard-section speed-plot">
+            <h2>Speed Distribution</h2>
+            <img src="{{ url_for('static', filename='images/speed_distribution_plot.png') }}" alt="Speed Distribution" class="plot-frame">
+        </div>
+    </div>
+</body>
+</html>

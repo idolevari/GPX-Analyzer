@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload GPX File</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('/static/bike-7365418_1920.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .upload-container {
+            background-color: rgba(255, 255, 255, 0.8); /* White background with some transparency */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .upload-container h1 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .file-input {
+            margin-bottom: 20px;
+        }
+
+        .upload-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .upload-button:hover {
+            background-color: #0056b3;
+        }
+
+        .sample-selection {
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        .sample-selection label {
+            margin-right: 10px;
+        }
+
+        .sample-selection select {
+            padding: 5px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <h1>Upload or Choose a Sample GPX File</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="radio" id="upload" name="file_option" value="upload" checked>
+            <label for="upload">Upload GPX File</label><br>
+            <input type="file" name="gpxfile" class="file-input"><br>
+
+            <input type="radio" id="sample" name="file_option" value="sample">
+            <label for="sample">Choose Sample GPX File</label><br>
+            <select name="sample_file" id="sample_file" class="sample-selection">
+                {% for file in sample_files %}
+                <option value="{{ file }}">{{ file }}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <button type="submit" class="upload-button">Analyze</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('{{ url_for('static', filename='bike-7365418_1920.jpg') }}') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+    height: 100vh;  /* Full viewport height */
+    width: 100vw;   /* Full viewport width */
+    box-sizing: border-box;
+}
+
+.dashboard-section {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.insights {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem; /* Smaller font size */
+}
+
+.map {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.elevation-plot {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.speed-plot {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.map-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+.plot-frame {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.dashboard-section h2 {
+    text-align: center;           /* Centers the text horizontally */
+    margin-top: 0;                /* Removes any top margin */
+    margin-bottom: 10px;          /* Adds some space below the header */
+    font-size: 1.2rem;            /* Adjust font size if needed */
+}
